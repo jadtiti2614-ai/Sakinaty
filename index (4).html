@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سكينة · Sakina — Ton sanctuaire intérieur</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0b0d12;
+    --deep: #10131a;
+    --surface: #161922;
+    --card: #1c2030;
+    --card2: #202438;
+    --border: rgba(180,155,110,0.13);
+    --border2: rgba(74,158,142,0.15);
+    --gold: #b49b6e;
+    --gold-light: #d4b88a;
+    --gold-glow: rgba(180,155,110,0.07);
+    --teal: #4a9e8e;
+    --teal-light: #6dbdac;
+    --rose: #c47e7e;
+    --lavender: #9b8ec4;
+    --text: #e8e4da;
+    --muted: #7a7868;
+    --soft: rgba(232,228,218,0.55);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--night);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content:'';
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% 15%, rgba(74,158,142,0.055) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 60% at 85% 85%, rgba(180,155,110,0.065) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(155,142,196,0.025) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .stars {
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 8% 12%, rgba(255,255,255,0.45) 0%, transparent 100%),
+      radial-gradient(1px 1px at 22% 8%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 20%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 78% 18%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 10%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 48%, rgba(255,255,255,0.15) 0%, transparent 100%),
+      radial-gradient(1px 1px at 72% 60%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 42%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 18% 78%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 82%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 35% 30%, rgba(180,155,110,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 80% 25%, rgba(74,158,142,0.45) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 12% 65%, rgba(155,142,196,0.4) 0%, transparent 100%);
+  }
+
+  .app {
+    position:relative; z-index:1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align:center;
+    padding: 56px 20px 44px;
+  }
+
+  .crescent {
+    font-size:32px;
+    display:block;
+    margin-bottom:14px;
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(180,155,110,0.4));
+  }
+
+  @keyframes float {
+    0%,100% { transform:translateY(0) rotate(-5deg); }
+    50% { transform:translateY(-8px) rotate(5deg); }
+  }
+
+  .title-ar {
+    font-family:'Amiri', serif;
+    font-size: clamp(48px, 9vw, 76px);
+    color: var(--gold-light);
+    letter-spacing:3px;
+    line-height:1;
+    text-shadow: 0 0 50px rgba(180,155,110,0.35), 0 0 100px rgba(180,155,110,0.1);
+  }
+
+  .title-fr {
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-style:italic;
+    color: var(--soft);
+    margin-top:8px;
+    letter-spacing:4px;
+  }
+
+  .tagline {
+    margin-top:14px;
+    font-size:11.5px;
+    color: var(--muted);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+
+  .divider-gold {
+    width:80px; height:1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 26px auto;
+  }
+
+  .ayah-box {
+    background: var(--gold-glow);
+    border: 1px solid var(--border);
+    border-radius:16px;
+    padding:22px 32px;
+    margin: 0 auto 20px;
+    max-width:600px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .ayah-box::before {
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, rgba(180,155,110,0.04), transparent 60%);
+    pointer-events:none;
+  }
+
+  .ayah-ar {
+    font-family:'Amiri', serif;
+    font-size:21px;
+    color: var(--gold-light);
+    text-align:center;
+    direction:rtl;
+    line-height:2;
+  }
+
+  .ayah-fr {
+    font-size:12px;
+    color: var(--muted);
+    text-align:center;
+    margin-top:8px;
+    font-style:italic;
+    letter-spacing:0.3px;
+    line-height:1.6;
+  }
+
+  .privacy-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: rgba(74,158,142,0.08);
+    border:1px solid rgba(74,158,142,0.22);
+    border-radius:50px;
+    padding:9px 22px;
+    font-size:11.5px;
+    color: var(--teal-light);
+    letter-spacing:0.5px;
+    margin-bottom:36px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:2.5px;
+    color: var(--muted);
+    margin-bottom:14px;
+  }
+
+  /* ── SITUATIONS ── */
+  .situations-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap:10px;
+    margin-bottom:36px;
+  }
+
+  .situation-btn {
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 12px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    text-align:center;
+    color: var(--text);
+    font-family:inherit;
+    font-size:13px;
+    font-weight:300;
+    line-height:1.4;
+  }
+
+  .situation-btn:hover {
+    border-color: rgba(180,155,110,0.38);
+    background: rgba(180,155,110,0.055);
+    transform:translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .situation-btn.active {
+    border-color: var(--gold);
+    background: rgba(180,155,110,0.1);
+    color: var(--gold-light);
+    box-shadow: 0 0 20px rgba(180,155,110,0.12);
+  }
+
+  .situation-btn .emoji {
+    font-size:24px;
+    display:block;
+    margin-bottom:9px;
+  }
+
+  /* ── TOOLS BAR ── */
+  .tools-bar {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+
+  .tool-chip {
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius:50px;
+    padding:9px 18px;
+    font-size:12px;
+    color: var(--muted);
+    cursor:pointer;
+    transition: all 0.25s;
+    font-family:inherit;
+  }
+
+  .tool-chip:hover {
+    border-color: var(--teal);
+    color: var(--teal-light);
+    background: rgba(74,158,142,0.07);
+  }
+
+  .tool-chip.active {
+    border-color: var(--teal);
+    color: var(--teal-light);
+    background: rgba(74,158,142,0.1);
+  }
+
+  /* ── PANEL BASE ── */
+  .panel {
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    margin-bottom:20px;
+    display:none;
+    animation: slideUp 0.45s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .panel.visible { display:block; }
+
+  @keyframes slideUp {
+    from { opacity:0; transform:translateY(24px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── CONVERSATION PANEL ── */
+  .panel-header {
+    background: linear-gradient(135deg, rgba(180,155,110,0.09), rgba(74,158,142,0.07));
+    border-bottom:1px solid var(--border);
+    padding:20px 26px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .panel-icon { font-size:26px; }
+
+  .panel-header-text h3 {
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    font-weight:400;
+    color: var(--gold-light);
+  }
+
+  .panel-header-text p {
+    font-size:11.5px;
+    color: var(--muted);
+    margin-top:3px;
+  }
+
+  /* CONVERSATION */
+  .conversation {
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  /* RESPONSE CARD */
+  .response-card {
+    background: var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px 24px;
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity:0; }
+    to { opacity:1; }
+  }
+
+  .response-card .label {
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color: var(--muted);
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .response-card .label::after {
+    content:'';
+    flex:1;
+    height:1px;
+    background: var(--border);
+  }
+
+  .response-body {
+    font-size:14.5px;
+    line-height:1.85;
+    color: var(--text);
+  }
+
+  .response-body p { margin-bottom:12px; }
+  .response-body p:last-child { margin-bottom:0; }
+
+  /* QURAN INLINE */
+  .quran-inline {
+    background: rgba(180,155,110,0.07);
+    border-left:2px solid var(--gold);
+    border-radius:0 10px 10px 0;
+    padding:12px 16px;
+    margin:14px 0;
+    direction:rtl;
+    text-align:right;
+  }
+
+  .quran-inline .ar {
+    font-family:'Amiri', serif;
+    font-size:17px;
+    color: var(--gold-light);
+    line-height:1.9;
+  }
+
+  .quran-inline .ref {
+    font-size:10px;
+    color: var(--muted);
+    direction:ltr;
+    text-align:left;
+    margin-top:5px;
+    font-family:'DM Sans', sans-serif;
+  }
+
+  /* QUESTION CHIPS */
+  .questions-section {
+    margin-top:20px;
+  }
+
+  .questions-label {
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color: var(--muted);
+    margin-bottom:12px;
+  }
+
+  .question-chips {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .q-chip {
+    background: var(--card2);
+    border:1px solid var(--border2);
+    border-radius:50px;
+    padding:9px 16px;
+    font-size:12.5px;
+    color: var(--teal-light);
+    cursor:pointer;
+    transition: all 0.25s;
+    font-family:inherit;
+    text-align:left;
+    line-height:1.4;
+  }
+
+  .q-chip:hover {
+    background: rgba(74,158,142,0.12);
+    border-color: var(--teal);
+    transform:translateY(-1px);
+  }
+
+  /* ── BREATHING PANEL ── */
+  .breathing-inner {
+    padding:36px 26px;
+    text-align:center;
+  }
+
+  .breath-circle-wrap {
+    position:relative;
+    width:150px; height:150px;
+    margin:0 auto 28px;
+  }
+
+  .breath-ring {
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:1.5px solid rgba(74,158,142,0.25);
+    animation: ring-pulse 3s ease-in-out infinite;
+  }
+
+  .breath-ring:nth-child(2) { animation-delay:1s; inset:-10px; }
+  .breath-ring:nth-child(3) { animation-delay:2s; inset:-20px; }
+
+  @keyframes ring-pulse {
+    0%,100% { opacity:0.3; transform:scale(1); }
+    50% { opacity:0.7; transform:scale(1.05); }
+  }
+
+  .breath-circle {
+    position:relative; z-index:2;
+    width:150px; height:150px;
+    border-radius:50%;
+    background: radial-gradient(circle at 40% 35%, rgba(74,158,142,0.35), rgba(74,158,142,0.08));
+    border:1.5px solid rgba(74,158,142,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    color: var(--teal-light);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition: all 0.3s;
+  }
+
+  .breath-circle:hover { transform:scale(1.04); }
+
+  .breath-circle.inhale { animation: b-expand 4s ease-in forwards; }
+  .breath-circle.hold { animation: b-hold 0.6s ease-in-out infinite alternate; }
+  .breath-circle.exhale { animation: b-contract 6s ease-out forwards; }
+
+  @keyframes b-expand {
+    to { transform:scale(1.45); background:radial-gradient(circle at 40% 35%, rgba(74,158,142,0.55), rgba(74,158,142,0.15)); }
+  }
+  @keyframes b-hold {
+    from { box-shadow:0 0 0 0 rgba(74,158,142,0.3); }
+    to { box-shadow:0 0 0 16px rgba(74,158,142,0); }
+  }
+  @keyframes b-contract {
+    to { transform:scale(0.75); background:radial-gradient(circle at 40% 35%, rgba(74,158,142,0.15), rgba(74,158,142,0.03)); }
+  }
+
+  .breath-phase {
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;
+    font-style:italic;
+    color: var(--teal-light);
+    margin-bottom:6px;
+    min-height:36px;
+  }
+
+  .breath-sub {
+    font-size:12px;
+    color: var(--muted);
+    margin-bottom:22px;
+    min-height:20px;
+  }
+
+  .breath-progress {
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:24px;
+  }
+
+  .bp-dot {
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+
+  .bp-dot.active { background: var(--teal); }
+
+  /* ── JOURNAL PANEL ── */
+  .journal-inner { padding:26px; }
+
+  .journal-inner h3 {
+    font-family:'Cormorant Garamond', serif;
+    font-size:21px;
+    font-weight:400;
+    color: var(--gold-light);
+    margin-bottom:5px;
+  }
+
+  .journal-inner .sub {
+    font-size:12px;
+    color: var(--muted);
+    margin-bottom:18px;
+    line-height:1.6;
+  }
+
+  .journal-area {
+    width:100%;
+    background: var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+    color: var(--text);
+    font-family:'Cormorant Garamond', serif;
+    font-size:16.5px;
+    font-weight:300;
+    resize:none;
+    min-height:150px;
+    line-height:1.9;
+    outline:none;
+    transition: border-color 0.3s;
+  }
+
+  .journal-area:focus { border-color: rgba(180,155,110,0.35); }
+  .journal-area::placeholder { color: var(--muted); font-style:italic; }
+
+  .journal-actions {
+    display:flex;
+    gap:10px;
+    margin-top:14px;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+  }
+
+  /* ── DUA PANEL ── */
+  .duas-grid {
+    padding:26px;
+    display:grid;
+    gap:14px;
+  }
+
+  .dua-card {
+    background: linear-gradient(135deg, rgba(180,155,110,0.07), rgba(74,158,142,0.04));
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px 22px;
+    text-align:center;
+    transition: all 0.3s;
+    cursor:default;
+  }
+
+  .dua-card:hover {
+    border-color: rgba(180,155,110,0.3);
+    transform:translateY(-2px);
+  }
+
+  .dua-card .ar {
+    font-family:'Amiri', serif;
+    font-size:19px;
+    color: var(--gold-light);
+    direction:rtl;
+    line-height:2;
+    margin-bottom:10px;
+  }
+
+  .dua-card .fr {
+    font-size:13px;
+    color: var(--soft);
+    font-style:italic;
+    line-height:1.7;
+    margin-bottom:6px;
+  }
+
+  .dua-card .ref {
+    font-size:10px;
+    color: var(--muted);
+    letter-spacing:0.5px;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-ghost {
+    background:transparent;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:9px 18px;
+    font-family:inherit;
+    font-size:12px;
+    color: var(--muted);
+    cursor:pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, rgba(180,155,110,0.18), rgba(74,158,142,0.13));
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:9px 22px;
+    font-family:inherit;
+    font-size:12px;
+    color: var(--gold-light);
+    cursor:pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover { background: rgba(180,155,110,0.24); }
+
+  .btn-breathe {
+    background: rgba(74,158,142,0.12);
+    border:1px solid rgba(74,158,142,0.35);
+    border-radius:10px;
+    padding:10px 28px;
+    font-family:inherit;
+    font-size:13px;
+    color: var(--teal-light);
+    cursor:pointer;
+    transition: all 0.2s;
+    margin-top:8px;
+  }
+
+  .btn-breathe:hover { background: rgba(74,158,142,0.2); }
+
+  /* ── AFFIRMATION RIBBON ── */
+  .affirmation-ribbon {
+    background: linear-gradient(135deg, rgba(155,142,196,0.08), rgba(180,155,110,0.06));
+    border:1px solid rgba(155,142,196,0.2);
+    border-radius:14px;
+    padding:20px 24px;
+    text-align:center;
+    margin-bottom:20px;
+    display:none;
+  }
+
+  .affirmation-ribbon.visible { display:block; animation: fadeIn 0.5s ease; }
+
+  .aff-text {
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    font-style:italic;
+    color: var(--lavender);
+    line-height:1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align:center;
+    padding:36px 20px;
+    border-top:1px solid var(--border);
+    margin-top:50px;
+  }
+
+  footer p {
+    font-size:11px;
+    color: var(--muted);
+    line-height:2;
+  }
+
+  .heart { color: var(--rose); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+
+  /* ── TOAST ── */
+  .toast {
+    position:fixed; bottom:32px; left:50%; transform:translateX(-50%);
+    background:var(--card); border:1px solid var(--gold);
+    border-radius:50px; padding:13px 28px;
+    font-size:13px; color:var(--gold-light);
+    z-index:1000; animation: slideUp 0.4s ease;
+    box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    white-space:nowrap;
+  }
+
+  /* ── MOBILE ── */
+  @media(max-width:580px) {
+    .situations-grid { grid-template-columns:repeat(2,1fr); }
+    .app { padding:0 14px 60px; }
+    .ayah-box { padding:18px 20px; }
+    .conversation { padding:18px; }
+    .breathing-inner { padding:28px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header>
+    <span class="crescent">☽</span>
+    <div class="title-ar">سكينة</div>
+    <div class="title-fr">Sakina · Ton sanctuaire intérieur</div>
+    <p class="tagline">Un espace confidentiel pour déposer ton fardeau</p>
+    <div class="divider-gold"></div>
+    <div class="ayah-box">
+      <div class="ayah-ar">أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</div>
+      <div class="ayah-fr">« C'est par le rappel de Dieu que les cœurs trouvent leur quiétude. »<br>— Sourate Ar-Ra'd : 28</div>
+    </div>
+    <div class="privacy-badge">
+      🔒 &nbsp;Espace 100% privé — rien n'est enregistré ni partagé
+    </div>
+  </header>
+
+  <!-- SITUATIONS -->
+  <div class="section-label">Comment te sens-tu en ce moment ?</div>
+  <div class="situations-grid">
+    <button class="situation-btn" onclick="selectSituation(this,'anxiety')">
+      <span class="emoji">🌊</span>Anxiété & peur
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'grief')">
+      <span class="emoji">🍂</span>Deuil & perte
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'guilt')">
+      <span class="emoji">🪨</span>Culpabilité & honte
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'loneliness')">
+      <span class="emoji">🌙</span>Solitude & vide
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'overwhelm')">
+      <span class="emoji">⛈️</span>Épuisement & surcharge
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'anger')">
+      <span class="emoji">🔥</span>Colère & injustice
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'hopeless')">
+      <span class="emoji">🌫️</span>Désespoir & découragement
+    </button>
+    <button class="situation-btn" onclick="selectSituation(this,'family')">
+      <span class="emoji">🌿</span>Relations & famille
+    </button>
+  </div>
+
+  <!-- AFFIRMATION -->
+  <div class="affirmation-ribbon" id="affirmationRibbon">
+    <div class="aff-text" id="affirmationText"></div>
+  </div>
+
+  <!-- CONVERSATION PANEL -->
+  <div class="panel" id="conversationPanel">
+    <div class="panel-header">
+      <div class="panel-icon" id="panelIcon">✨</div>
+      <div class="panel-header-text">
+        <h3 id="panelTitle">Espace d'écoute</h3>
+        <p>Confidentiel · Bienveillant · Ancré dans la sagesse</p>
+      </div>
+    </div>
+    <div class="conversation" id="conversationContent">
+      <!-- Dynamic content -->
+    </div>
+  </div>
+
+  <!-- TOOLS BAR -->
+  <div class="section-label">Outils de paix intérieure</div>
+  <div class="tools-bar">
+    <button class="tool-chip" id="chipBreathing" onclick="togglePanel('breathing')">🫁 Respiration guidée</button>
+    <button class="tool-chip" id="chipJournal" onclick="togglePanel('journal')">📖 Journal secret</button>
+    <button class="tool-chip" id="chipDuas" onclick="togglePanel('duas')">🤲 Douaas & supplications</button>
+  </div>
+
+  <!-- BREATHING PANEL -->
+  <div class="panel" id="breathingPanel">
+    <div class="panel-header">
+      <div class="panel-icon">🫁</div>
+      <div class="panel-header-text">
+        <h3>Respiration 4-7-8</h3>
+        <p>Apaise ton système nerveux en quelques minutes</p>
+      </div>
+    </div>
+    <div class="breathing-inner">
+      <div class="breath-circle-wrap">
+        <div class="breath-ring"></div>
+        <div class="breath-ring"></div>
+        <div class="breath-ring"></div>
+        <div class="breath-circle" id="breathCircle" onclick="startBreathing()">
+          Commence
+        </div>
+      </div>
+      <div class="breath-phase" id="breathPhase">Prête ?</div>
+      <div class="breath-sub" id="breathSub">Clique sur le cercle pour démarrer</div>
+      <div class="breath-progress" id="breathProgress">
+        <div class="bp-dot"></div>
+        <div class="bp-dot"></div>
+        <div class="bp-dot"></div>
+        <div class="bp-dot"></div>
+        <div class="bp-dot"></div>
+      </div>
+      <div class="dua-card" style="max-width:480px;margin:0 auto;">
+        <div class="ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ نَفْسًا مُطْمَئِنَّةً</div>
+        <div class="fr">« Ô Allah, je Te demande une âme apaisée »</div>
+        <div class="ref">Douaa des croyants</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNAL PANEL -->
+  <div class="panel" id="journalPanel">
+    <div class="panel-header">
+      <div class="panel-icon">📖</div>
+      <div class="panel-header-text">
+        <h3>Journal secret</h3>
+        <p>Ces mots n'appartiennent qu'à toi seule</p>
+      </div>
+    </div>
+    <div class="journal-inner">
+      <div class="sub">Écris ce qui pèse sur ton cœur. Personne ne lira ces mots. Quand tu seras prête, tu pourras les lâcher.</div>
+      <textarea class="journal-area" id="journalArea"
+        placeholder="Ce que je ressens en ce moment...&#10;Ce qui me pèse depuis longtemps...&#10;Ce que j'aurais voulu dire mais n'ai pas pu...&#10;Ce dont j'ai besoin..."></textarea>
+      <div class="journal-actions">
+        <button class="btn-ghost" onclick="clearJournal()">🗑 Effacer</button>
+        <button class="btn-primary" onclick="releaseJournal()">🕊 Déposer & lâcher prise</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUAS PANEL -->
+  <div class="panel" id="duasPanel">
+    <div class="panel-header">
+      <div class="panel-icon">🤲</div>
+      <div class="panel-header-text">
+        <h3>Douaas pour les moments difficiles</h3>
+        <p>Laisse ces paroles résonner dans ton cœur</p>
+      </div>
+    </div>
+    <div class="duas-grid">
+      <div class="dua-card">
+        <div class="ar">رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا</div>
+        <div class="fr">« Seigneur, ne nous tiens pas rigueur si nous oublions ou si nous commettons des erreurs. »</div>
+        <div class="ref">Al-Baqara : 286</div>
+      </div>
+      <div class="dua-card">
+        <div class="ar">رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ</div>
+        <div class="fr">« Seigneur, une affliction m'a touchée, et Tu es le plus Miséricordieux des miséricordieux. »</div>
+        <div class="ref">Al-Anbiya : 83 — Douaa d'Ayyoub ﻋﻠﻴﻪ اﻟﺴﻼم</div>
+      </div>
+      <div class="dua-card">
+        <div class="ar">حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ</div>
+        <div class="fr">« Allah me suffit. Il n'y a de divinité que Lui. En Lui je place ma confiance. »</div>
+        <div class="ref">At-Tawba : 129</div>
+      </div>
+      <div class="dua-card">
+        <div class="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ</div>
+        <div class="fr">« Ô Allah, je cherche refuge en Toi contre l'angoisse et la tristesse, contre la faiblesse et la paresse. »</div>
+        <div class="ref">Sahih Al-Bukhari</div>
+      </div>
+      <div class="dua-card">
+        <div class="ar">رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي</div>
+        <div class="fr">« Seigneur, ouvre ma poitrine, facilite-moi mes affaires et délie le nœud de ma langue. »</div>
+        <div class="ref">Ta-Ha : 25-28 — Douaa de Moussa ﻋﻠﻴﻪ اﻟﺴﻼم</div>
+      </div>
+      <div class="dua-card">
+        <div class="ar">لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ</div>
+        <div class="fr">« Il n'y a de divinité que Toi, gloire à Toi, j'ai vraiment été du nombre des injustes. »</div>
+        <div class="ref">Al-Anbiya : 87 — Douaa de Younous ﻋﻠﻴﻪ اﻟﺴﻼم</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="divider-gold" style="margin-bottom:22px;"></div>
+    <p>
+      سكينة · Sakina — Ton sanctuaire intérieur<br>
+      Créé avec <span class="heart">♥</span> par <em>Libère ton potentiel — Agis, Inspire, Transforme</em><br><br>
+      <span style="font-size:10px;">Cet espace ne remplace pas un suivi psychologique professionnel.<br>
+      Si tu traverses une crise grave, cherche l'aide d'un professionnel de santé.</span>
+    </p>
+  </footer>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// DATA — Réponses profondes préécrites
+// ════════════════════════════════════════════
+const data = {
+  anxiety: {
+    icon: '🌊',
+    title: 'Espace pour l\'anxiété & la peur',
+    affirmation: 'L\'anxiété est une vague — elle monte, mais elle redescend toujours. Tu es le rivage, pas la tempête.',
+    response: {
+      opening: 'Ce que tu ressens est réel, et tu as le droit de le ressentir. L\'anxiété n\'est pas un signe de faiblesse — c\'est ton cœur qui essaie de te protéger. Mais parfois, cette protection devient elle-même un fardeau.',
+      quran: { ar: 'وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ', fr: '« Ne vous découragez pas et ne vous attristez pas — vous serez les plus élevés si vous êtes croyants. »', ref: 'Âli \'Imrân : 139' },
+      body: [
+        'L\'anxiété a souvent une racine : la peur de perdre le contrôle, la peur du futur, ou des douleurs non guéries du passé. Allah nous rappelle que le futur n\'est pas entre nos mains — et c\'est une libération, pas une prison.',
+        'Ancre-toi dans le présent : pose les deux pieds à plat sur le sol, respire lentement, et dis intérieurement : <em>« Je suis en sécurité maintenant. »</em> Le cerveau anxieux vit dans le futur — ramène-le ici.',
+        'Technique 5-4-3-2-1 : nomme 5 choses que tu vois, 4 que tu touches, 3 que tu entends, 2 que tu sens, 1 que tu goûtes. Cela coupe le cycle de la pensée anxieuse.'
+      ]
+    },
+    questions: [
+      { q: 'Que faire quand l\'anxiété m\'empêche de dormir ?', key: 'anxiety_sleep' },
+      { q: 'Comment calmer une crise d\'angoisse ?', key: 'anxiety_crisis' },
+      { q: 'Comment arrêter les pensées négatives en boucle ?', key: 'anxiety_thoughts' },
+      { q: 'Y a-t-il des douaas spécifiques contre l\'anxiété ?', key: 'anxiety_dua' },
+    ]
+  },
+  grief: {
+    icon: '🍂',
+    title: 'Espace pour le deuil & la perte',
+    affirmation: 'Pleurer ce qu\'on a perdu, c\'est honorer ce qu\'on a aimé. Le deuil est la preuve que tu as su aimer.',
+    response: {
+      opening: 'La perte laisse un vide que rien ne peut combler immédiatement. Et c\'est normal. Le deuil n\'est pas une maladie à guérir — c\'est un amour qui n\'a plus d\'endroit où aller.',
+      quran: { ar: 'إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ', fr: '« Certes, nous sommes à Allah, et c\'est à Lui que nous retournons. »', ref: 'Al-Baqara : 156' },
+      body: [
+        'Le Prophète ﷺ a pleuré la mort de son fils Ibrahim. Les larmes sont une rahma — une miséricorde. Tu n\'as pas à être forte tout le temps. Laisse-toi sentir.',
+        'Il n\'y a pas d\'ordre dans le deuil, pas de calendrier. Certains jours tu te sentiras mieux, d\'autres tu replongeras. Ce n\'est pas un recul — c\'est la nature de la guérison.',
+        'Parle à cette personne, à cette chose perdue, comme si elle t\'entendait. Dis-lui ce que tu n\'as pas pu dire. Ce n\'est pas fou — c\'est guérisseur.'
+      ]
+    },
+    questions: [
+      { q: 'Comment accepter une perte que je n\'ai pas choisie ?', key: 'grief_accept' },
+      { q: 'Je me sens coupable après ce deuil, pourquoi ?', key: 'grief_guilt' },
+      { q: 'Comment continuer à vivre après une grande perte ?', key: 'grief_continue' },
+      { q: 'Que dit l\'Islam sur le deuil et les larmes ?', key: 'grief_islam' },
+    ]
+  },
+  guilt: {
+    icon: '🪨',
+    title: 'Espace pour la culpabilité & la honte',
+    affirmation: 'Tu n\'es pas ta pire erreur. Tu es aussi tout ce que tu as fait de bien, et tout ce que tu peux encore devenir.',
+    response: {
+      opening: 'La culpabilité est parfois un guide — elle nous indique que notre conscience est vivante. Mais quand elle devient un mur, elle nous empêche d\'avancer. Il y a une différence entre la culpabilité qui transforme et celle qui détruit.',
+      quran: { ar: 'قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ', fr: '« Dis : Ô Mes serviteurs qui ont péché contre eux-mêmes, ne désespérez pas de la miséricorde d\'Allah. »', ref: 'Az-Zumar : 53' },
+      body: [
+        'Allah est Al-Ghafour, Al-Raheem — Le Très Pardonnant, Le Très Miséricordieux. Ces noms ne sont pas des titres honorifiques : ils sont Sa nature profonde. Se tourner vers Lui avec un cœur sincère est suffisant.',
+        'La honte dit : <em>« Je suis mauvaise. »</em> La culpabilité saine dit : <em>« J\'ai fait quelque chose que je veux réparer. »</em> Apprends à distinguer les deux — l\'une te définit, l\'autre t\'invite à grandir.',
+        'Le tawbah (le repentir) a trois étapes : reconnaître, regretter sincèrement, et ne pas retourner vers cela. Ce n\'est pas une performance — c\'est une conversation intime entre toi et Allah.'
+      ]
+    },
+    questions: [
+      { q: 'Comment me pardonner à moi-même ?', key: 'guilt_self' },
+      { q: 'Je me sens indigne d\'être pardonnée par Allah', key: 'guilt_allah' },
+      { q: 'Comment réparer ce que j\'ai fait de mal ?', key: 'guilt_repair' },
+      { q: 'Différence entre honte toxique et culpabilité saine ?', key: 'guilt_diff' },
+    ]
+  },
+  loneliness: {
+    icon: '🌙',
+    title: 'Espace pour la solitude & le vide',
+    affirmation: 'La solitude n\'est pas l\'absence des autres — c\'est parfois l\'invitation à se retrouver soi-même.',
+    response: {
+      opening: 'Se sentir seule dans une pièce pleine de monde est l\'une des douleurs les plus silencieuses qui soit. Tu n\'as pas à expliquer pourquoi tu te sens ainsi — ce sentiment est réel et mérite d\'être entendu.',
+      quran: { ar: 'وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ', fr: '« Nous sommes plus proche de lui que sa veine jugulaire. »', ref: 'Qaf : 16' },
+      body: [
+        'Allah est Al-Qarib — Le Proche. Même dans les nuits les plus sombres, tu n\'es jamais vraiment seule. Cette présence invisible est constante, sans conditions, sans jugement.',
+        'La solitude chronique est souvent liée à un décalage entre qui tu es vraiment et les relations que tu as. Ce n\'est pas un défaut en toi — c\'est parfois un signe que tu mérites des connexions plus profondes.',
+        'Essaie cet exercice : écris une lettre à toi-même comme si tu étais ta meilleure amie. Que lui dirais-tu ? Cette bienveillance que tu réserves aux autres, tu en as besoin aussi.'
+      ]
+    },
+    questions: [
+      { q: 'Comment me sentir moins seule quand personne ne comprend ?', key: 'lone_understand' },
+      { q: 'Je me sens seule même en famille, que faire ?', key: 'lone_family' },
+      { q: 'Comment créer des liens authentiques ?', key: 'lone_connect' },
+      { q: 'Comment transformer la solitude en ressource ?', key: 'lone_resource' },
+    ]
+  },
+  overwhelm: {
+    icon: '⛈️',
+    title: 'Espace pour l\'épuisement & la surcharge',
+    affirmation: 'Tu n\'as pas à tout porter seule. Poser une charge, c\'est aussi un acte de sagesse.',
+    response: {
+      opening: 'Quand tout s\'accumule au point de ne plus savoir par où commencer... c\'est le signe que ton corps et ton cœur ont besoin d\'une pause, pas d\'une nouvelle liste de choses à faire.',
+      quran: { ar: 'لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا', fr: '« Allah n\'impose à aucune âme plus qu\'elle ne peut supporter. »', ref: 'Al-Baqara : 286' },
+      body: [
+        'L\'épuisement profond vient souvent du fait de donner aux autres ce qu\'on ne se donne pas à soi-même. Tu n\'es pas une machine — tu es un être humain qui a besoin de se ressourcer pour continuer à rayonner.',
+        'Commence par une seule chose. Une. Pas la liste entière, pas demain. Juste maintenant, la toute première chose la plus urgente. Tout le reste peut attendre un instant.',
+        'Le repos n\'est pas une récompense que tu dois mériter. C\'est une nécessité. Le Prophète ﷺ dormait, se reposait, jouait — prendre soin de soi est une sounna.'
+      ]
+    },
+    questions: [
+      { q: 'Comment dire non sans me sentir coupable ?', key: 'over_no' },
+      { q: 'Je suis épuisée mais je ne peux pas m\'arrêter, quoi faire ?', key: 'over_stop' },
+      { q: 'Comment prioriser quand tout semble urgent ?', key: 'over_priority' },
+      { q: 'Comment récupérer après un burn-out ?', key: 'over_burnout' },
+    ]
+  },
+  anger: {
+    icon: '🔥',
+    title: 'Espace pour la colère & l\'injustice',
+    affirmation: 'Ta colère est légitime. Ce qui compte, c\'est ce que tu en fais — la transformer en force, pas en poison.',
+    response: {
+      opening: 'La colère est une émotion légitime, surtout face à l\'injustice. Elle signale que quelque chose d\'important a été violé — une valeur, une limite, ta dignité. Tu as le droit d\'être en colère.',
+      quran: { ar: 'وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ', fr: '« ...ceux qui refrènent leur colère et pardonnent aux gens — Allah aime ceux qui font le bien. »', ref: 'Âli \'Imrân : 134' },
+      body: [
+        'Réprimer la colère n\'est pas la même chose que la maîtriser. La colère refoulée se transforme en dépression, en maladie, en rancoeur. Elle a besoin d\'être exprimée — mais dans un espace sûr, comme celui-ci.',
+        'Le Prophète ﷺ a dit : <em>« Si l\'un de vous est en colère debout, qu\'il s\'assoie. S\'il l\'est encore, qu\'il s\'allonge. »</em> Ce changement physique casse le circuit de la colère dans le cerveau.',
+        'Demande-toi : qu\'est-ce que cette colère protège vraiment ? Souvent derrière la colère, il y a une blessure plus ancienne, une peur, un besoin non satisfait. C\'est là que la guérison commence.'
+      ]
+    },
+    questions: [
+      { q: 'Comment gérer la colère contre quelqu\'un que j\'aime ?', key: 'ang_love' },
+      { q: 'Face à l\'injustice, comment ne pas perdre la foi ?', key: 'ang_injustice' },
+      { q: 'Comment pardonner quelqu\'un qui ne s\'excuse pas ?', key: 'ang_forgive' },
+      { q: 'La colère m\'envahit tout le temps, est-ce normal ?', key: 'ang_chronic' },
+    ]
+  },
+  hopeless: {
+    icon: '🌫️',
+    title: 'Espace pour le désespoir & le découragement',
+    affirmation: 'Le noir le plus profond précède toujours l\'aube. L\'espoir n\'est pas naïf — il est courageux.',
+    response: {
+      opening: 'Quand le désespoir s\'installe, il ment. Il te dit que rien ne changera jamais — mais le désespoir est une perception, pas une réalité. Et les perceptions peuvent changer.',
+      quran: { ar: 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا', fr: '« Certes, avec la difficulté vient la facilité. Oui, avec la difficulté vient la facilité. »', ref: 'Ash-Sharh : 5-6' },
+      body: [
+        'Allah a répété ce verset deux fois de suite — comme s\'Il savait que dans les moments sombres, nous avions besoin de l\'entendre plus d\'une fois. La difficulté ET la facilité coexistent. Elle est déjà là, même si tu ne la vois pas encore.',
+        'Le découragement épuise notre capacité à voir les possibilités. C\'est neurologique — pas un défaut de caractère. Quand tu te sens ainsi, ton cerveau a besoin de preuves contraires : un petit succès, un geste de gentillesse, une belle lumière.',
+        'Commence par chercher la plus petite lumière. Une seule chose, aussi minime soit-elle, qui va bien aujourd\'hui. L\'espoir se reconstruit brique par brique, pas tout d\'un coup.'
+      ]
+    },
+    questions: [
+      { q: 'Je n\'arrive plus à voir d\'issue, que faire ?', key: 'hope_noissue' },
+      { q: 'Comment retrouver la motivation quand tout s\'effondre ?', key: 'hope_motiv' },
+      { q: 'Comment ne pas désespérer de la réponse d\'Allah ?', key: 'hope_allah' },
+      { q: 'Comment aider quelqu\'un qui a perdu espoir ?', key: 'hope_other' },
+    ]
+  },
+  family: {
+    icon: '🌿',
+    title: 'Espace pour les relations & la famille',
+    affirmation: 'Les liens familiaux sont nos premières écoles d\'amour — parfois belles, parfois douloureuses, toujours formatrices.',
+    response: {
+      opening: 'Les relations les plus profondes sont aussi celles qui peuvent faire le plus mal. Ce n\'est pas un paradoxe — c\'est parce que là où il y a amour, il y a vulnérabilité.',
+      quran: { ar: 'وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ', fr: '« Comportez-vous envers elles de manière convenable. »', ref: 'An-Nisa : 19' },
+      body: [
+        'Dans chaque conflit familial, il y a au moins deux vérités. La tienne est valide. Celle de l\'autre aussi. Cela ne signifie pas que tu as tort — cela signifie que la situation est complexe et mérite d\'être vue avec nuance.',
+        'Les patterns familiaux se répètent de génération en génération jusqu\'à ce que quelqu\'un décide de les transformer. Si tu ressens cette douleur, peut-être que tu es celle qui est appelée à guérir ce que les générations précédentes n\'ont pas pu.',
+        'Fixer des limites n\'est pas de la froideur — c\'est de l\'amour. Aimer quelqu\'un ne signifie pas accepter tout ce qu\'il fait. Tu peux aimer et te protéger en même temps.'
+      ]
+    },
+    questions: [
+      { q: 'Comment gérer les conflits avec ma mère / ma belle-famille ?', key: 'fam_mother' },
+      { q: 'Comment poser des limites sans briser les liens ?', key: 'fam_limits' },
+      { q: 'Je me sens incomprise dans ma propre famille', key: 'fam_understood' },
+      { q: 'Comment gérer une relation toxique dans la famille ?', key: 'fam_toxic' },
+    ]
+  }
+};
+
+// ════════════════════════════════════════════
+// FOLLOW-UP ANSWERS
+// ════════════════════════════════════════════
+const followups = {
+  anxiety_sleep: {
+    title: 'Anxiété & sommeil',
+    content: `<p>Le cerveau anxieux la nuit est un expert du "et si...". Voici ce qui fonctionne vraiment :</p>
+    <p><strong>1. La technique 4-7-8 :</strong> Inspire 4 secondes, retiens 7, expire 8. Répète 4 fois. Cela active le nerf vague et ralentit le rythme cardiaque.</p>
+    <p><strong>2. Externalise les pensées :</strong> Garde un carnet à côté de toi. Quand une pensée arrive, écris-la. Dis à ton cerveau : "Je m'en occupe demain." Il vous croira.</p>
+    <p><strong>3. Le dhikr comme ancrage :</strong> Répète doucement <em>سبحان الله</em>, <em>الحمد لله</em>, <em>الله أكبر</em> — ce n'est pas une formule magique, c'est une façon de ramener l'esprit au présent.</p>
+    <p>Le Prophète ﷺ lisait Al-Mou'awwidhatayn (Al-Falaq et An-Nas) avant de dormir et soufflait dans ses mains. Cette sounna est aussi une protection psychologique.</p>`
+  },
+  anxiety_crisis: {
+    title: 'Calmer une crise d\'angoisse',
+    content: `<p>Dans une crise, ton cerveau croit qu'il est en danger. Il a besoin de preuves que tu es en sécurité — maintenant.</p>
+    <p><strong>Étape 1 — Grounding immédiat :</strong> Pose les deux pieds sur le sol. Appuie fort. Sens la solidité. Tu es ici, maintenant.</p>
+    <p><strong>Étape 2 — Respiration carrée :</strong> Inspire 4s → Retiens 4s → Expire 4s → Retiens 4s. Répète jusqu'à sentir ton cœur ralentir.</p>
+    <p><strong>Étape 3 — Nomme ce que tu vois :</strong> "Je vois un mur beige. Je vois une fenêtre. Je vois..." — cela engage le cortex préfrontal et désactive l'amygdale (centre de la peur).</p>
+    <p><strong>Étape 4 — Dis à voix haute ou intérieurement :</strong> <em>حَسْبِيَ اللَّهُ وَنِعْمَ الْوَكِيلُ</em> — "Allah me suffit, et Il est le meilleur des garants."</p>`
+  },
+  anxiety_thoughts: {
+    title: 'Arrêter les pensées en boucle',
+    content: `<p>Les pensées en boucle (rumination) sont épuisantes. Le cerveau rejoue la même scène comme s'il cherchait une solution — mais il ne la trouvera pas de cette façon.</p>
+    <p><strong>La technique de l'observatrice :</strong> Imagine que tu es assise dans un cinéma et que tes pensées défilent sur l'écran. Tu les regardes — tu ne les es pas. Tu n'as pas à les croire.</p>
+    <p><strong>Pose la question :</strong> "Est-ce que je peux faire quelque chose à ce sujet maintenant ?" Si oui → fais-le. Si non → dis à ton cerveau : "Je te remercie, mais cette pensée n'est pas utile en ce moment."</p>
+    <p><strong>Le dhikr comme interrupteur :</strong> Quand la boucle commence, commence à compter sur tes doigts : <em>سبحان الله</em> × 33. Cela occupe la partie du cerveau qui rumine.</p>`
+  },
+  anxiety_dua: {
+    title: 'Douaas contre l\'anxiété',
+    content: `<p>Ces supplications ont été transmises comme des remèdes spirituels pour l'anxiété :</p>
+    <div class="quran-inline"><div class="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ</div><div class="ref">Ô Allah, je cherche refuge en Toi contre l'angoisse et la tristesse, la faiblesse et la paresse — Sahih Bukhari</div></div>
+    <div class="quran-inline"><div class="ar">لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ</div><div class="ref">Il n'y a de divinité qu'Allah, le Grand, le Doux — À réciter en cas d'angoisse · Bukhari & Muslim</div></div>
+    <p>Le Prophète ﷺ a enseigné que lire Ayat Al-Kursi le soir apporte une protection et une paix intérieure. Lis-la lentement, en comprenant le sens — chaque attribut d'Allah est un remède.</p>`
+  },
+  grief_accept: {
+    title: 'Accepter une perte non choisie',
+    content: `<p>L'acceptation n'est pas l'accord. Accepter ne signifie pas que c'est bien, ou que ça ne fait plus mal. Cela signifie : "Je reconnais que c'est ainsi, et je vais vivre avec ça."</p>
+    <p>Le deuil passe par plusieurs phases — le déni, la colère, la négociation, la tristesse, puis l'acceptation. Ces phases ne sont pas linéaires. Tu peux être dans l'acceptation un jour et retomber dans la colère le lendemain. C'est normal.</p>
+    <p><strong>Ce qui aide :</strong> Permettre à la douleur d'exister sans la combattre. Quand tu résistes à une émotion, elle s'intensifie. Quand tu la laisses traverser, elle perd de sa force.</p>
+    <p>Dis-toi : <em>"Cette perte fait partie de mon histoire. Elle ne me définit pas, mais elle m'a transformée."</em></p>`
+  },
+  guilt_self: {
+    title: 'Se pardonner à soi-même',
+    content: `<p>Le pardon de soi est souvent plus difficile que pardonner aux autres — parce que tu es là, avec toi, tout le temps. Chaque rappel de l'erreur rouvre la blessure.</p>
+    <p><strong>Étape 1 :</strong> Reconnais ce que tu as fait, sans l'exagérer ni le minimiser. Juste les faits, avec honnêteté.</p>
+    <p><strong>Étape 2 :</strong> Demande-toi : qu'est-ce que tu savais à ce moment-là ? Avec ce que tu savais et ce que tu étais à ce moment-là, tu as fait du mieux que tu pouvais.</p>
+    <p><strong>Étape 3 :</strong> Fais le tawbah. Ce n'est pas une formule — c'est une vraie conversation avec Allah. Exprime tout ce que tu ressens.</p>
+    <p><strong>Étape 4 :</strong> Décide qui tu veux être maintenant. L'erreur du passé n'est pas ton identité.</p>`
+  },
+  hope_noissue: {
+    title: 'Quand on ne voit plus d\'issue',
+    content: `<p>Quand tout semble fermé, c'est souvent que notre vision est rétrécie par la douleur. Le tunnel est réel — mais il a une sortie.</p>
+    <p>Si tu traverses des pensées de te faire du mal, s'il te plaît parle à quelqu'un maintenant — un médecin, un proche de confiance, ou une ligne d'écoute. Tu mérites d'être soutenue.</p>
+    <p><strong>Pour les moments de désespoir profond :</strong></p>
+    <p>Ne cherche pas à voir toute la route. Cherche juste le prochain petit pas. Une heure. Juste cette heure.</p>
+    <div class="quran-inline"><div class="ar">وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ</div><div class="ref">« Ne désespérez jamais de la miséricorde d'Allah. » — Yusuf : 87</div></div>
+    <p>Allah dit : <em>jamais</em>. Pas "essaie de ne pas désespérer." Jamais. Parce qu'Il sait ce dont tu es capable.</p>`
+  },
+  fam_limits: {
+    title: 'Poser des limites sans briser les liens',
+    content: `<p>Une limite n'est pas un mur — c'est une porte avec une clé. Tu décides qui entre et à quelles conditions.</p>
+    <p><strong>Ce qu'une limite n'est pas :</strong> Une punition, de l'égoïsme, ou la rupture du lien.</p>
+    <p><strong>Comment la formuler :</strong> "J'ai besoin de..." plutôt que "Tu fais toujours...". L'un parle de toi, l'autre attaque l'autre.</p>
+    <p><strong>Exemple :</strong> "J'ai besoin qu'on évite ce sujet lors de nos repas. Ça me fait beaucoup de mal et je veux qu'on passe du bon temps ensemble." C'est une limite ancrée dans l'amour.</p>
+    <p>Islam et limites : l'Islam encourage la justice envers soi-même aussi. <em>« Commence par toi-même »</em> — le Prophète ﷺ.</p>`
+  }
+};
+
+// Fill remaining followups with a default
+const allKeys = [];
+Object.values(data).forEach(d => d.questions.forEach(q => allKeys.push(q.key)));
+allKeys.forEach(key => {
+  if (!followups[key]) {
+    followups[key] = {
+      title: 'Réflexion & guidance',
+      content: `<p>Cette question mérite une attention profonde. Voici quelques pistes pour t'aider à y réfléchir :</p>
+      <p>Commence par te demander : <em>Quelle est la chose dont j'ai le plus besoin en ce moment ?</em> Pas ce que tu devrais ressentir — ce que tu ressens vraiment.</p>
+      <p>La psychologie nous apprend que derrière chaque difficulté se cache un besoin non satisfait. Quel besoin cette situation révèle-t-elle chez toi ?</p>
+      <div class="quran-inline"><div class="ar">وَاللَّهُ يَعْلَمُ مَا فِي قُلُوبِكُمْ</div><div class="ref">« Allah sait ce qui est dans vos cœurs. » — Âli 'Imrân : 154</div></div>
+      <p>Tu n'es pas seule dans cette réflexion. Chaque pas vers la compréhension de toi-même est un pas vers la guérison. 🤍</p>`
+    };
+  }
+});
+
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+let currentSituation = null;
+let breathTimer = null;
+let breathCycle = 0;
+
+// ════════════════════════════════════════════
+// SELECT SITUATION
+// ════════════════════════════════════════════
+function selectSituation(btn, key) {
+  document.querySelectorAll('.situation-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentSituation = key;
+
+  const d = data[key];
+
+  // Affirmation
+  const ribbon = document.getElementById('affirmationRibbon');
+  document.getElementById('affirmationText').textContent = d.affirmation;
+  ribbon.classList.add('visible');
+
+  // Panel
+  document.getElementById('panelIcon').textContent = d.icon;
+  document.getElementById('panelTitle').textContent = d.title;
+
+  // Build content
+  const content = document.getElementById('conversationContent');
+  content.innerHTML = '';
+
+  // Main response card
+  const card = document.createElement('div');
+  card.className = 'response-card';
+  card.innerHTML = `
+    <div class="label">✦ Espace d'écoute</div>
+    <div class="response-body">
+      <p>${d.response.opening}</p>
+      <div class="quran-inline">
+        <div class="ar">${d.response.quran.ar}</div>
+        <div class="ref">${d.response.quran.fr} · ${d.response.quran.ref}</div>
+      </div>
+      ${d.response.body.map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `;
+  content.appendChild(card);
+
+  // Questions
+  const qSection = document.createElement('div');
+  qSection.className = 'questions-section';
+  qSection.innerHTML = `
+    <div class="questions-label">Questions fréquentes — clique pour obtenir une réponse</div>
+    <div class="question-chips">
+      ${d.questions.map(q => `<button class="q-chip" onclick="showAnswer('${q.key}', this)">${q.q}</button>`).join('')}
+    </div>
+  `;
+  content.appendChild(qSection);
+
+  // Show panel
+  const panel = document.getElementById('conversationPanel');
+  panel.classList.add('visible');
+
+  setTimeout(() => {
+    panel.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 100);
+}
+
+// ════════════════════════════════════════════
+// SHOW ANSWER
+// ════════════════════════════════════════════
+function showAnswer(key, btn) {
+  // Remove existing answer
+  const existing = document.getElementById('answerCard');
+  if (existing) existing.remove();
+
+  const f = followups[key];
+  if (!f) return;
+
+  // Mark chip active
+  document.querySelectorAll('.q-chip').forEach(c => c.style.borderColor = '');
+  btn.style.borderColor = 'var(--gold)';
+  btn.style.color = 'var(--gold-light)';
+
+  const card = document.createElement('div');
+  card.className = 'response-card';
+  card.id = 'answerCard';
+  card.innerHTML = `
+    <div class="label">💬 ${f.title}</div>
+    <div class="response-body">${f.content}</div>
+  `;
+
+  const content = document.getElementById('conversationContent');
+  content.appendChild(card);
+
+  setTimeout(() => {
+    card.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 100);
+}
+
+// ════════════════════════════════════════════
+// TOGGLE PANELS
+// ════════════════════════════════════════════
+function togglePanel(name) {
+  const panels = { breathing: 'breathingPanel', journal: 'journalPanel', duas: 'duasPanel' };
+  const chips = { breathing: 'chipBreathing', journal: 'chipJournal', duas: 'chipDuas' };
+
+  const panel = document.getElementById(panels[name]);
+  const chip = document.getElementById(chips[name]);
+  const isVisible = panel.classList.contains('visible');
+
+  panel.classList.toggle('visible');
+  chip.classList.toggle('active');
+
+  if (!isVisible) {
+    setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'start' }), 100);
+  }
+}
+
+// ════════════════════════════════════════════
+// BREATHING
+// ════════════════════════════════════════════
+function startBreathing() {
+  clearTimeout(breathTimer);
+  const circle = document.getElementById('breathCircle');
+  const phaseEl = document.getElementById('breathPhase');
+  const subEl = document.getElementById('breathSub');
+  const dots = document.querySelectorAll('.bp-dot');
+
+  const phases = [
+    { name:'inhale', label:'Inspire...', sub:'4 secondes — doucement', dur:4000, dot:0 },
+    { name:'hold',   label:'Retiens...', sub:'7 secondes — reste en paix', dur:7000, dot:1 },
+    { name:'exhale', label:'Expire...', sub:'8 secondes — relâche tout', dur:8000, dot:2 },
+    { name:'',       label:'Pause...', sub:'Avant le prochain cycle', dur:2000, dot:3 },
+  ];
+
+  let i = 0;
+
+  function run() {
+    const p = phases[i % phases.length];
+    circle.className = 'breath-circle ' + (p.name || '');
+    phaseEl.textContent = p.label;
+    subEl.textContent = p.sub;
+
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === p.dot));
+
+    i++;
+    breathTimer = setTimeout(run, p.dur);
+  }
+
+  run();
+}
+
+// ════════════════════════════════════════════
+// JOURNAL
+// ════════════════════════════════════════════
+function clearJournal() {
+  document.getElementById('journalArea').value = '';
+}
+
+function releaseJournal() {
+  const area = document.getElementById('journalArea');
+  if (!area.value.trim()) return;
+  area.style.transition = 'opacity 1.8s ease';
+  area.style.opacity = '0';
+  setTimeout(() => {
+    area.value = '';
+    area.style.opacity = '1';
+    showToast('🕊 Déposé. Tu peux souffler maintenant.');
+  }, 1800);
+}
+
+// ════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='opacity 0.5s'; setTimeout(()=>t.remove(),500); }, 3000);
+}
+</script>
+</body>
+</html>
